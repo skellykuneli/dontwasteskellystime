@@ -1,121 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Don't Waste Skelly's Time</title>
 
 <style>
-body{
-    background:#0f1117;
-    color:#e4e7eb;
-    font-family:system-ui,sans-serif;
-    max-width:800px;
-    margin:auto;
-    padding:40px 20px;
-    line-height:1.7;
+:root {
+  --bg: #0f1117;
+  --card: #181d29;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --green: #51cf66;
+  --red: #ff6b6b;
+  --border: #2a3142;
 }
 
-h1{
-    font-size:3rem;
-    margin-bottom:0;
+* {
+  box-sizing: border-box;
 }
 
-.subtitle{
-    color:#9aa4b2;
-    font-size:1.2rem;
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1b2030, var(--bg));
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
 }
 
-.card{
-    background:#1a1f2b;
-    border-radius:12px;
-    padding:20px;
-    margin:20px 0;
+main {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 70px 22px;
 }
 
-.bad{
-    color:#ff6b6b;
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 0.95;
+  margin: 0 0 18px;
+  letter-spacing: -0.06em;
 }
 
-.good{
-    color:#51cf66;
+h2 {
+  margin-top: 0;
 }
 
-code{
-    display:block;
-    background:#111827;
-    padding:15px;
-    border-radius:8px;
-    white-space:pre-wrap;
+.lead {
+  font-size: 1.35rem;
+  color: var(--muted);
+  margin-bottom: 32px;
 }
 
-footer{
-    margin-top:40px;
-    color:#9aa4b2;
+.card {
+  background: rgba(24, 29, 41, 0.88);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 22px 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.good {
+  border-color: rgba(81, 207, 102, .45);
+}
+
+.bad {
+  border-color: rgba(255, 107, 107, .45);
+}
+
+.good h2 {
+  color: var(--green);
+}
+
+.bad h2 {
+  color: var(--red);
+}
+
+.example {
+  background: #0b0f18;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre-wrap;
+}
+
+.bad .example {
+  color: var(--red);
+}
+
+.good .example {
+  color: var(--green);
+}
+
+ul {
+  padding-left: 22px;
+}
+
+footer {
+  color: var(--muted);
+  margin-top: 34px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
+<main>
+  <h1>Don’t Waste Skelly’s Time</h1>
 
-<h1>🚫 Don't Waste Skelly's Time</h1>
-<p class="subtitle">
-A combination of nohello.net and dontasktoask.com
-</p>
+  <p class="lead">
+    Be cool. Be direct. Say what you need.
+  </p>
 
-<div class="card">
-<h2>Just ask the question.</h2>
+  <section class="card">
+    <h2>Just ask the question.</h2>
+    <p>
+      You don’t need to ask if you can ask. You don’t need to check if I’m around.
+      Put the question in the first message so I can actually help.
+    </p>
+  </section>
 
-<p>
-Don't send:
-</p>
+  <section class="grid">
+    <div class="card bad">
+      <h2>Don’t send this</h2>
+      <div class="example">yo
 
-<p class="bad">
-hi<br>
-can I ask something?<br>
-are you there?<br>
-quick question
-</p>
+Hello, are you around?
 
-<p>
-Send the actual question instead.
-</p>
-</div>
+hi skelly- quick question.
 
-<div class="card">
-<h2>Good message</h2>
+You got a sec?</div>
+    </div>
 
-<code>Hey Skelly —
+    <div class="card good">
+      <h2>Send this instead</h2>
+      <div class="example">yo skelly I have an issue with "x"
 
-Can you help me with my Discord bot?
+or
 
-Context:
-Using discord.js v14
+yo skelly could you tell me "x"</div>
+    </div>
+  </section>
 
-Tried:
-Checked intents and token
+  <section class="card">
+    <h2>Even better</h2>
+    <div class="example">yo skelly I have an issue with "x"
 
-Problem:
-Slash commands don't register
+I tried "y"
+I expected "z"
+but this happened instead: "error/message/result"</div>
+  </section>
 
-No rush.</code>
-</div>
+  <section class="card">
+    <h2>The rules</h2>
+    <ul>
+      <li>Say what you need in the first message.</li>
+      <li>Include context if it matters.</li>
+      <li>Show what you already tried.</li>
+      <li>Don’t make me play message tag.</li>
+    </ul>
+  </section>
 
-<div class="card">
-<h2>Rules</h2>
-
-<p class="good">✓ Ask immediately</p>
-<p class="good">✓ Include context</p>
-<p class="good">✓ Show what you've tried</p>
-
-<p class="bad">✗ hi</p>
-<p class="bad">✗ can I ask a question?</p>
-<p class="bad">✗ help</p>
-</div>
-
-<footer>
-Ask the thing.
-</footer>
-
+  <footer>
+    Ask the thing.
+  </footer>
+</main>
 </body>
 </html>
